@@ -31,6 +31,7 @@ func InitProvider(cfg *config.Config) {
 func ProvideHttpDependency(cfg *config.Config, router *gin.Engine) {
 	ProvideGatewayModule(router)
 	ProvideAuthModule(router)
+	ProvideExampleModule(router)
 	cronJob.Start()
 }
 
