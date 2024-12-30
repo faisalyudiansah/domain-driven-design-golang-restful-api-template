@@ -41,7 +41,7 @@ func (p *EmailTaskProcessor) HandleVerificationEmail(ctx context.Context, t *asy
 		smtputils.VerificationSubject,
 		smtputils.VerificationTemplate,
 		map[string]any{
-			"Link": fmt.Sprintf("https://digitalent.games.test.shopee.io/vm3/verify-account?token=%v&email=%v", encodedToken, encodedEmail),
+			"Link": fmt.Sprintf("http://localhost:5173/verify-account?token=%v&email=%v", encodedToken, encodedEmail),
 		},
 	)
 
@@ -61,7 +61,7 @@ func (p *EmailTaskProcessor) HandleForgotPasswordEmail(ctx context.Context, t *a
 		payload.Email,
 		smtputils.ResetPasswordSubject,
 		smtputils.ResetPasswordTemplate,
-		map[string]any{"Link": fmt.Sprintf("https://digitalent.games.test.shopee.io/vm3/reset-password?token=%v&email=%v", encodedToken, encodedEmail)},
+		map[string]any{"Link": fmt.Sprintf("http://localhost:5173/reset-password?token=%v&email=%v", encodedToken, encodedEmail)},
 	)
 
 	return err
